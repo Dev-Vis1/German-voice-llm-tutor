@@ -1,0 +1,31 @@
+# German Voice LLM Tutor - Python Dependencies
+
+# Web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# UI
+streamlit==1.28.1
+
+# HTTP requests
+requests==2.31.0
+aiofiles==23.2.1
+
+# Audio processing and TTS
+openai-whisper
+edge-tts==6.1.9
+pyttsx3==2.90
+
+# Optional: if you want to use local audio processing
+# soundfile==0.12.1
+# librosa==0.10.1
+
+# Data handling
+python-multipart==0.0.6
+
+# Optional: if you want better audio format support
+# pydub==0.25.1
+
+# Development and testing (optional)
+# pytest==7.4.3
+# pytest-asyncio==0.21.1
