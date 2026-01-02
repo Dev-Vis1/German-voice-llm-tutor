@@ -6,7 +6,7 @@ def ask_ollama(
     prompt: str, 
     model: str = "mistral", 
     base_url: str = "http://localhost:11434",
-    timeout: int = 15  # Shorter default timeout for faster responses
+    timeout: int = 60  # Longer timeout for larger models like Mistral
 ) -> str:
     """
     Send prompt to Ollama and return response.
