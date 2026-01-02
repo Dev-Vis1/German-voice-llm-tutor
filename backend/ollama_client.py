@@ -4,9 +4,9 @@ from typing import Optional
 
 def ask_ollama(
     prompt: str, 
-    model: str = "mistral", 
+    model: str = "llama3.1:8b", 
     base_url: str = "http://localhost:11434",
-    timeout: int = 60  # Longer timeout for larger models like Mistral
+    timeout: int = 60  # Reduced timeout for better reliability
 ) -> str:
     """
     Send prompt to Ollama and return response.
