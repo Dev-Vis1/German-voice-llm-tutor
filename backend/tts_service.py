@@ -224,15 +224,15 @@ if __name__ == "__main__":
     print("=== Offline Capabilities Check ===")
     caps = check_offline_capabilities()
     
-    print(f"✅ Whisper (Speech Recognition): {'Available' if caps['whisper'] else 'Not Available'}")
-    print(f"✅ Offline TTS (pyttsx3): {'Available' if caps['tts_offline'] else 'Not Available'}")
-    print(f"🌐 Online TTS (Edge): {'Available' if caps['tts_online'] else 'Not Available'}")
-    print(f"🏠 Local LLM (Ollama): {'Available' if caps['ollama_local'] else 'Not Available'}")
+    print(f" Whisper (Speech Recognition): {'Available' if caps['whisper'] else 'Not Available'}")
+    print(f" Offline TTS (pyttsx3): {'Available' if caps['tts_offline'] else 'Not Available'}")
+    print(f" Online TTS (Edge): {'Available' if caps['tts_online'] else 'Not Available'}")
+    print(f" Local LLM (Ollama): {'Available' if caps['ollama_local'] else 'Not Available'}")
     
     if caps['whisper'] and caps['tts_offline']:
-        print("\\n✅ FULLY OFFLINE CAPABLE!")
+        print("\n FULLY OFFLINE CAPABLE!")
     else:
-        print("\\n⚠️  Some offline components missing")
+        print("\n  Some offline components missing")
 
 # Test function
 if __name__ == "__main__":
@@ -241,7 +241,7 @@ if __name__ == "__main__":
         
         available, engine = is_tts_available()
         if available:
-            print(f"✓ TTS available via {engine}")
+            print(f" TTS available via {engine}")
             
             voices = list_available_voices()
             print(f"Available voices: {voices[:3]}...")  # Show first 3
@@ -252,17 +252,17 @@ if __name__ == "__main__":
                 print(f"Testing synthesis: '{test_text}'")
                 
                 audio_data = await speak_text(test_text)
-                print(f"✓ Generated {len(audio_data)} bytes of audio")
+                print(f" Generated {len(audio_data)} bytes of audio")
                 
                 # Save test file
                 test_file = "test_tts.wav"
                 await save_tts_audio(test_text, test_file)
-                print(f"✓ Saved test audio to {test_file}")
+                print(f" Saved test audio to {test_file}")
                 
             except Exception as e:
-                print(f"✗ TTS test failed: {e}")
+                print(f" TTS test failed: {e}")
         else:
-            print("✗ No TTS engine available. Install with:")
+            print(" No TTS engine available. Install with:")
             print("  pip install edge-tts")
             print("  or: pip install pyttsx3")
     

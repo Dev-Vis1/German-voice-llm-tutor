@@ -6,7 +6,7 @@ def ask_ollama(
     prompt: str, 
     model: str = "llama3.1:8b", 
     base_url: str = "http://localhost:11434",
-    timeout: int = 60  # Reduced timeout for better reliability
+    timeout: int = 90  
 ) -> str:
     """
     Send prompt to Ollama and return response.
@@ -26,13 +26,13 @@ def ask_ollama(
         payload = {
             "model": model,
             "prompt": prompt,
-            "stream": False  # Get complete response at once
+            "stream": False 
         }
         
         response = requests.post(
             url, 
             json=payload, 
-            timeout=timeout  # Use configurable timeout
+            timeout=timeout  
         )
         
         if response.status_code != 200:
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     print("Testing Ollama connection...")
     
     if check_ollama_status():
-        print("✓ Ollama is running")
+        print("Ollama is running")
         
         models = list_ollama_models()
         print(f"Available models: {models}")
@@ -105,6 +105,6 @@ if __name__ == "__main__":
             response = ask_ollama(test_prompt)
             print(f"Test response: {response}")
         except Exception as e:
-            print(f"✗ Test failed: {e}")
+            print(f"Test failed: {e}")
     else:
-        print("✗ Ollama is not running. Start it with: ollama serve")
+        print("Ollama is not running. Start it with: ollama serve")

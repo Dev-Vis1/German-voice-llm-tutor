@@ -20,9 +20,7 @@ async def voice_chat(
     audio: UploadFile = File(...),
     topic: str = Form(default="general conversation")
 ):
-    """
-    Main voice chat endpoint - restored working version
-    """
+    
     try:
         # Save uploaded audio temporarily
         with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_audio:
